@@ -7,5 +7,5 @@ Feature: Log in LinkedIn Website
 
   Scenario:
     Given I am at linkedin login page
-    When I type username: "bernagokce@gmailcom" and password: "k121324q"
+    When I type username: "ahmeffsdf@gmail.com" and password: "k121324q"
     Then I am at my linkedin profile
