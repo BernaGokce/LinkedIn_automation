@@ -67,3 +67,24 @@ end
 Then(/^I am at Linkedin home page$/) do
   page.should have_content("Graduate Quality Analyst at ThoughtWorks")
 end
+
+
+When(/^I add new position$/) do
+  find($user_profile_page['add_education']).click
+end
+
+
+And(/^I type school: "([^"]*)" , degree: "([^"]*)" , field: "([^"]*)" and description: "([^"]*)"$/) do |school, degree, field, description |
+  find($user_profile_page['add_school']).set school
+  find($user_profile_page['add_degree']).set degree
+  find($user_profile_page['add_field']).set field
+  find($user_profile_page['add_description']).set description
+  find($user_profile_page['add_button']).click
+end
+
+
+Then(/^I can see my new experience on my profile$/) do
+  sleep 5
+  page.should have_content("Education")
+  page.should have_content("Sehir")
+end
