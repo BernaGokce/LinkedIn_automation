@@ -15,19 +15,17 @@ Then(/^I get "([^"]*)"$/) do |error|
 end
 
 When(/^I type username: "([^"]*)" and password: "([^"]*)"$/) do |username, password|
-  Capybara.default_max_wait_time = 5
   find($login_page['email_input']).set username
   find($login_page['password_input']).set password
   find($login_page['login_button']).click
 end
 
 Then(/^I can see my username: "([^"]*)"$/) do |username|
-  Capybara.default_max_wait_time = 5
   page.should have_content(username)
 end
 
 Given(/^I am at my linkedin profile$/) do
-  Capybara.default_max_wait_time = 5
+  Capybara.sleep 1
 end
 
 When(/^I click Publish a post$/) do
@@ -36,7 +34,6 @@ When(/^I click Publish a post$/) do
 end
 
 And(/^I type head:"([^"]*)" and post: "([^"]*)"$/) do |myheader, mypost|
-  Capybara.default_max_wait_time = 5
   find($post_page['post_header']).set myheader
   find($post_page['post_space']).set mypost
   find($post_page['publish_button']).click
@@ -47,13 +44,12 @@ Then(/^I can see my post: "([^"]*)" and my topic:"([^"]*)"$/) do |post, topic|
   page.should have_content(topic)
 end
 
-When(/^I click Update Status$/) do
+When(/^I activate Update Status tab$/) do
   find($profile_page['updatestatus_button']).click
 end
 
 
 And(/^I type textplane : "([^"]*)" and select : "([^"]*)"$/) do |newstatus, selectoption|
-  Capybara.default_max_wait_time = 5
   find($profile_page['status_space']).set newstatus
   select(selectoption, :from => $profile_page['select_option'])
   #page.should have_content(selectoption)
@@ -62,11 +58,11 @@ end
 And(/^upload a picture$/) do
   find($profile_page['upload_photo']).click
   attach_file('upload_photo', '/Users/bgokce/Desktop/url.png')
-  find($profile_page['share_button']).click
 end
 
+
+
 Then(/^I can see my status: "([^"]*)" and button: "([^"]*)"$/) do |status, button|
-  Capybara.default_max_wait_time = 5
   page.should have_content(status)
   page.should have_content(button)
 end
@@ -89,3 +85,14 @@ Then(/^I should see text: "([^"]*)" and header : "([^"]*)"$/) do |text, header|
 end
 
 
+And(/^I do nothing$/) do
+  Capybara.sleep 1
+end
+
+And(/^I click Share button$/) do
+  find($profile_page['share_button']).click
+end
+
+Then(/^I should still see Status field$/) do
+  page.should have_content('#postmodule-container')
+end
