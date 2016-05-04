@@ -11,7 +11,7 @@ $profile_page = {
     'share_button' => '.postmodule-submit',
     'profile_setting' => '.nav-profile-photo',
     'select_option' => '#share-with-combo-select',
-    'upload_photo' => 'label.upload.spot'
+    'upload_photo' => 'label.upload'
 }
 
 $post_page = {
