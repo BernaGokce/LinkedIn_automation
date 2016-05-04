@@ -20,7 +20,7 @@ Feature: Log in LinkedIn Website
 
   Scenario:
     Given I am at linkedin login page
-    When I type username: "bernagokce@std.sehir.edu.tr" and password: "kubber"
+    When I type username: "ahmet233@gmail.com" and password: "kuberwr"
     Then I can see my username: "Berna Gökçe"
 
 
