@@ -1,5 +1,5 @@
 $login_page = {
-    'email_input'=>'#session_key-login',
+    'email_input' => '#session_key-login',
     'password_input' => '#session_password-login',
     'login_button' => '#btn-primary'
 }
@@ -10,8 +10,8 @@ $profile_page = {
     'status_space' => '#postmodule-text',
     'share_button' => '.postmodule-submit',
     'profile_setting' => '.nav-profile-photo',
-
-
+    'select_option' => '#share-with-combo-select',
+    'upload_photo' => 'label.upload.spot'
 }
 
 $post_page = {
@@ -24,8 +24,8 @@ $user_profile_page = {
     'add_education' => 'button.add-promo-button.js-add-entity',
     'add_school' => 'input#schoolText-schoolchoice-editEducationForm.yui-ac-input',
     'add_degree' => 'input#schoolDegree-editEducationForm.yui-ac-input',
-    'add_field' => 'input#schoolFieldOfStudy-editEducationForm.yui-ac-input' ,
-    'add_description' => 'schoolNotes-editEducationForm' ,
+    'add_field' => 'input#schoolFieldOfStudy-editEducationForm.yui-ac-input',
+    'add_description' => 'schoolNotes-editEducationForm',
     'add_button' => 'input.btn-primary'
 
 }

@@ -51,10 +51,17 @@ When(/^I click Update Status$/) do
   find($profile_page['updatestatus_button']).click
 end
 
-And(/^I type textplane : "([^"]*)"$/) do |newstatus|
+
+And(/^I type textplane : "([^"]*)" and select : "([^"]*)"$/) do |newstatus, selectoption|
   Capybara.default_max_wait_time = 5
   find($profile_page['status_space']).set newstatus
-  page.should have_content("Public")
+  select(selectoption, :from => $profile_page['select_option'])
+  #page.should have_content(selectoption)
+end
+
+And(/^upload a picture$/) do
+  find($profile_page['upload_photo']).click
+  attach_file('upload_photo', '/Users/bgokce/Desktop/url.png')
   find($profile_page['share_button']).click
 end
 
