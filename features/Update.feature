@@ -8,4 +8,4 @@ Feature: Updating status
     Given I am at my linkedin profile
     When I click Update Status
     And I type textplane : "Graduate QA"
-    Then I can see my new post on my profile
+    Then I can see my status: "Graduate" and button: "Like"

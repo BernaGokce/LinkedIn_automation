@@ -8,4 +8,4 @@ Feature:Publishing post
     Given I am at my linkedin profile
     When I click Publish a post
     And I type head:"QA things" and post: "QA events"
-    Then I can see my post on my profile
+    Then I can see my post: "Your Posts" and my topic:"QA"
