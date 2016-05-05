@@ -11,7 +11,12 @@ $profile_page = {
     'share_button' => '.postmodule-submit',
     'profile_setting' => '.nav-profile-photo',
     'select_option' => '#share-with-combo-select',
-    'upload_photo' => 'label.upload'
+    'upload_photo' => 'label.upload',
+    'user_name_field' => 'div#identity.animating',
+    'publish_post_field' => 'div.viral-entity',
+    'update_status_text' => 'div.content.div.text-entity',
+    'update_status_action_field' => 'div.content.ul.actions',
+    'update_status_hole_field' => 'div#share-box'
 }
 
 $post_page = {
@@ -26,6 +31,7 @@ $user_profile_page = {
     'add_degree' => 'input#schoolDegree-editEducationForm.yui-ac-input',
     'add_field' => 'input#schoolFieldOfStudy-editEducationForm.yui-ac-input',
     'add_description' => 'schoolNotes-editEducationForm',
-    'add_button' => 'input.btn-primary'
+    'add_button' => 'input.btn-primary',
+    'education_field' => 'div#background'
 
 }

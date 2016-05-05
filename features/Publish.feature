@@ -4,7 +4,8 @@ Feature:Publishing post
   I want to post my opinion about anything
   So that people know my opinion
 
-  Scenario:
+  Scenario: Publishing new post with all lines
+
     Given I am at my linkedin profile
     When I click Publish a post
     And I type head:"QA things" and post: "QA events"

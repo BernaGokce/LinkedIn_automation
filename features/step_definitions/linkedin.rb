@@ -21,7 +21,8 @@ When(/^I type username: "([^"]*)" and password: "([^"]*)"$/) do |username, passw
 end
 
 Then(/^I can see my username: "([^"]*)"$/) do |username|
-  page.should have_content(username)
+  expect(page).to have_field("user_name_field", with: username)
+  #page.should have_content(username)
 end
 
 Given(/^I am at my linkedin profile$/) do
@@ -30,7 +31,6 @@ end
 
 When(/^I click Publish a post$/) do
   find($profile_page['publish_button']).click
-  page.should have_content("Your Posts")
 end
 
 And(/^I type head:"([^"]*)" and post: "([^"]*)"$/) do |myheader, mypost|
@@ -40,8 +40,10 @@ And(/^I type head:"([^"]*)" and post: "([^"]*)"$/) do |myheader, mypost|
 end
 
 Then(/^I can see my post: "([^"]*)" and my topic:"([^"]*)"$/) do |post, topic|
-  page.should have_content(post)
-  page.should have_content(topic)
+  expect(page).to have_field("publish_post_field", with: post)
+  expect(page).to have_field("publish_post_field", with: topic)
+  #page.should have_content(post)
+  #page.should have_content(topic)
 end
 
 When(/^I activate Update Status tab$/) do
@@ -63,8 +65,10 @@ end
 
 
 Then(/^I can see my status: "([^"]*)" and button: "([^"]*)"$/) do |status, button|
-  page.should have_content(status)
-  page.should have_content(button)
+  expect(page).to have_field("update_status_text", with: status)
+  expect(page).to have_field("update_status_action_field", with: button)
+  #page.should have_content(status)
+  #page.should have_content(button)
 end
 
 When(/^I add new position$/) do
@@ -80,8 +84,10 @@ And(/^I type school: "([^"]*)" , degree: "([^"]*)" , field: "([^"]*)" and descri
 end
 
 Then(/^I should see text: "([^"]*)" and header : "([^"]*)"$/) do |text, header|
-  page.should have_content(text)
-  page.should have_content(header)
+  expect(page).to have_field("education_field", with: text)
+  expect(page).to have_field("education_field", with: header)
+  #page.should have_content(text)
+  #page.should have_content(header)
 end
 
 
@@ -94,5 +100,6 @@ And(/^I click Share button$/) do
 end
 
 Then(/^I should still see Status field$/) do
-  page.should have_content('#postmodule-container')
+  expect(page).to have_field("update_status_hole_field")
 end
+

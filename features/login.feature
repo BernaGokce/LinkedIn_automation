@@ -4,7 +4,7 @@ Feature: Log in LinkedIn Website
   I want to type username and password
   So that I can login to system
 
-  Scenario Outline: Login to LinkedIn Profile
+  Scenario Outline: Login to LinkedIn Profile with wrong informations
     Given I am at linkedin login page
     When I type wrong username: "<username>" and random password: "<password>"
     Then I get "<error>"
@@ -18,7 +18,7 @@ Feature: Log in LinkedIn Website
       | WrongEmail | 12345at7 | Please enter a valid email address.                                                       |
       | random     | 12456sd  | Hmm, we don't recognize that email. Please try again.                                     |
 
-  Scenario:
+  Scenario: Login to LinkedIn Profile with correct information
     Given I am at linkedin login page
     When I type username: "ahmet233@gmail.com" and password: "kuberwr"
     Then I can see my username: "Berna Gökçe"
