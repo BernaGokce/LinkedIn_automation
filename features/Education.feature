@@ -7,8 +7,7 @@ Feature: Checking Profile
   Scenario: Adding new education information
 
     Given I am at my linkedin profile
-    When I add new position
-    And  I type school: "Sehir" , degree: "3.70" , field: "computer science" and description: "hello"
+    When  I type school: "Sehir" , degree: "3.70" , field: "computer science" and description: "hello"
     Then I should see text: "Sehir" and header : "Education"
 
 

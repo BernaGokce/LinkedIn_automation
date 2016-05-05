@@ -29,11 +29,8 @@ Given(/^I am at my linkedin profile$/) do
   Capybara.sleep 1
 end
 
-When(/^I click Publish a post$/) do
+When(/^I type head:"([^"]*)" and post: "([^"]*)"$/) do |myheader, mypost|
   find($profile_page['publish_button']).click
-end
-
-And(/^I type head:"([^"]*)" and post: "([^"]*)"$/) do |myheader, mypost|
   find($post_page['post_header']).set myheader
   find($post_page['post_space']).set mypost
   find($post_page['publish_button']).click
@@ -46,23 +43,15 @@ Then(/^I can see my post: "([^"]*)" and my topic:"([^"]*)"$/) do |post, topic|
   #page.should have_content(topic)
 end
 
-When(/^I activate Update Status tab$/) do
+When(/^I type textplane : "([^"]*)" , select : "([^"]*)" and upload a picture$/) do |newstatus, selectoption|
   find($profile_page['updatestatus_button']).click
-end
-
-
-And(/^I type textplane : "([^"]*)" and select : "([^"]*)"$/) do |newstatus, selectoption|
   find($profile_page['status_space']).set newstatus
   select(selectoption, :from => $profile_page['select_option'])
   #page.should have_content(selectoption)
-end
-
-And(/^upload a picture$/) do
   find($profile_page['upload_photo']).click
   attach_file('upload_photo', '/Users/bgokce/Desktop/url.png')
+  find($profile_page['share_button']).click
 end
-
-
 
 Then(/^I can see my status: "([^"]*)" and button: "([^"]*)"$/) do |status, button|
   expect(page).to have_field("update_status_text", with: status)
@@ -71,11 +60,8 @@ Then(/^I can see my status: "([^"]*)" and button: "([^"]*)"$/) do |status, butto
   #page.should have_content(button)
 end
 
-When(/^I add new position$/) do
+When(/^I type school: "([^"]*)" , degree: "([^"]*)" , field: "([^"]*)" and description: "([^"]*)"$/) do |school, degree, field, description|
   find($user_profile_page['add_education']).click
-end
-
-And(/^I type school: "([^"]*)" , degree: "([^"]*)" , field: "([^"]*)" and description: "([^"]*)"$/) do |school, degree, field, description|
   find($user_profile_page['add_school']).set school
   find($user_profile_page['add_degree']).set degree
   find($user_profile_page['add_field']).set field
@@ -90,15 +76,11 @@ Then(/^I should see text: "([^"]*)" and header : "([^"]*)"$/) do |text, header|
   #page.should have_content(header)
 end
 
-
-And(/^I do nothing$/) do
+When(/^I do nothing$/) do
+  find($profile_page['updatestatus_button']).click
   Capybara.sleep 1
-end
-
-And(/^I click Share button$/) do
   find($profile_page['share_button']).click
 end
-
 
 When(/^I comment "([^"]*)"$/) do |blank|
   find($profile_page['updatestatus_button']).click
@@ -111,7 +93,7 @@ Then(/^I should still see Status field$/) do
 end
 
 
-When(/^I comment js: "([^"]*)" and select : "([^"]*)"$/) do | js, selectoption|
+When(/^I comment js: "([^"]*)" and select : "([^"]*)"$/) do |js, selectoption|
   find($profile_page['updatestatus_button']).click
   find($profile_page['status_space']).set js
   select(selectoption, :from => $profile_page['select_option'])
@@ -120,4 +102,5 @@ end
 Then(/^I should see it as a status on my profile$/) do
   expect(page).to have_field("update_status_hole_field")
 end
+
 
