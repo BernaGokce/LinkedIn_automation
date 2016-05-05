@@ -103,4 +103,13 @@ Then(/^I should see it as a status on my profile$/) do
   expect(page).to have_field("update_status_hole_field")
 end
 
+When(/^I type "([^"]*)" characters to field "([^"]*)"$/) do |characterCount, fieldName|
+  find($profile_page['updatestatus_button']).click
+  find($profile_page[fieldName]).set(characterCount * 'x')
+  select(selectoption, :from => $profile_page['select_option'])
+  find($profile_page['share_button']).click
+end
 
+Then(/^I can see error : "([^"]*)"$/) do |error|
+  find($profile_page['status_space']).set error
+end

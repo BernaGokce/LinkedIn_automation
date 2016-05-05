@@ -16,7 +16,8 @@ $profile_page = {
     'publish_post_field' => 'div.viral-entity',
     'update_status_text' => 'div.content.div.text-entity',
     'update_status_action_field' => 'div.content.ul.actions',
-    'update_status_hole_field' => 'div#share-box'
+    'update_status_hole_field' => 'div#share-box',
+    'error_message_character_limit' => 'div.text-count-error.error'
 }
 
 $post_page = {

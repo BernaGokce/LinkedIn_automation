@@ -23,3 +23,8 @@ Feature: Updating status
     Given I am at my linkedin profile
     When I comment js: " <s> " and select : "CONNECTIONS"
     Then I should see it as a status on my profile
+
+  Scenario: Finding limit of text file
+    Given I am at my linkedin profile
+    When I type "601" characters to field "field_name"
+    Then I can see error : "You have exceeded the maximum length by"
