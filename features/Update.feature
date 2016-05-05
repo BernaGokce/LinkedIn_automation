@@ -20,7 +20,12 @@ Feature: Updating status
     Then I should still see Status field
 
 
-    Scenario: Share blank status
-      Given that I am at linkedin page
-      When I commment "nil"
-      Then Icant post status
+  Scenario: Share blank status
+    Given I am at my linkedin profile
+    When I comment "    "
+    Then I should still see Status field
+
+  Scenario: Trying java script codes
+    Given I am at my linkedin profile
+    When I comment js: " <s> " and select : "CONNECTIONS"
+    Then I should see it as a status on my profile

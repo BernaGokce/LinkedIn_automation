@@ -99,7 +99,25 @@ And(/^I click Share button$/) do
   find($profile_page['share_button']).click
 end
 
+
+When(/^I comment "([^"]*)"$/) do |blank|
+  find($profile_page['updatestatus_button']).click
+  find($profile_page['status_space']).set blank
+  select(selectoption, :from => $profile_page['select_option'])
+end
+
 Then(/^I should still see Status field$/) do
+  expect(page).to have_field("update_status_hole_field")
+end
+
+
+When(/^I comment js: "([^"]*)" and select : "([^"]*)"$/) do | js, selectoption|
+  find($profile_page['updatestatus_button']).click
+  find($profile_page['status_space']).set js
+  select(selectoption, :from => $profile_page['select_option'])
+end
+
+Then(/^I should see it as a status on my profile$/) do
   expect(page).to have_field("update_status_hole_field")
 end
 
