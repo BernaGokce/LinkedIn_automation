@@ -2,7 +2,7 @@ require 'capybara/cucumber'
 require 'rspec'
 require 'selenium-webdriver'
 require 'nokogiri'
-
+require 'rest-client'
 
 
 

@@ -1,3 +1,4 @@
+@publishing
 Feature:Publishing post
 
   As a LinkedIn user

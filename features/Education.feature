@@ -1,3 +1,4 @@
+@checking
 Feature: Checking Profile
 
   As a linkedIn user

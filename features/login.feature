@@ -1,9 +1,11 @@
+@login
 Feature: Log in LinkedIn Website
 
   As a LinkedIn user
   I want to type username and password
   So that I can login to system
 
+  @wrongpasword
   Scenario Outline: Login to LinkedIn Profile with wrong informations
     Given I am at linkedin login page
     When I type wrong username: "<username>" and random password: "<password>"
